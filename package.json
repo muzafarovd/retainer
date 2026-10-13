@@ -1,0 +1,38 @@
+{
+  "name": "@retainer/tempo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Protocol-enforced recurring contractor payments on Tempo.",
+  "type": "module",
+  "bin": {
+    "retainer": "./dist/cli.js"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "review": "node scripts/serve-review.mjs",
+    "probe:negative": "node scripts/probe-negative.mjs",
+    "probe:recovery": "node scripts/probe-recovery.mjs",
+    "probe:concurrency": "node scripts/probe-concurrency.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm typecheck && pnpm test"
+  },
+  "dependencies": {
+    "commander": "15.0.0",
+    "viem": "2.57.2",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  }
+}
